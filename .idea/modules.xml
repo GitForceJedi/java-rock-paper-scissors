@@ -3,6 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/RockPaperScissors.iml" filepath="$PROJECT_DIR$/RockPaperScissors.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rock-paper-scissors-game.iml" filepath="$PROJECT_DIR$/rock-paper-scissors-game.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/rock-paper-scissors-game.main.iml" filepath="$PROJECT_DIR$/.idea/modules/rock-paper-scissors-game.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/rock-paper-scissors-game.test.iml" filepath="$PROJECT_DIR$/.idea/modules/rock-paper-scissors-game.test.iml" />
     </modules>
   </component>
 </project>

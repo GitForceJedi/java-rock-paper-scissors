@@ -176,64 +176,8 @@ public class RockPaperScissorsGame {
         this.paperWins = paperWins;
     }
 
-    //Main Method
-    public static void main(String[] args) {
-        // Create an instance of RockPaperScissorsGame
-        RockPaperScissorsGame game = new RockPaperScissorsGame();
-        //Establish scanner for user input
-        Scanner scanner = new Scanner(System.in);
-        //Boolean value to trigger menu / stopping program
-        boolean playing = true;
-
-        //While loop to keep menu open so long as option 6 is not chosen, will continue until 6 is chosen
-        while (playing) {
-            System.out.println("1. Play Rock, Paper, Scissors");
-            System.out.println("2. Print results");
-            System.out.println("3. Calculate Win Rate");
-            System.out.println("4. Output choices");
-            System.out.println("5. Save results to Text File & Exit");
-            System.out.println("6. Exit");
-            int choice = scanner.nextInt();
-
-            //Switch statement to handle the menu option choice 1-6
-            switch (choice) {
-                case 1:
-                    //Directions for user
-                    System.out.println("Select 1 for Rock, 2 for Paper, or 3 for Scissors:");
-                    int userChoice = scanner.nextInt();
-                    game.playGame(userChoice);
-                    break;
-                case 2:
-                    //Print the game results so far
-                    game.printResults();
-                    break;
-                case 3:
-                    //Calculate the rates at the point this runs / the choice is input
-                    game.calculateWinRate();
-                    game.calculateDrawRate();
-                    String winDrawRate = game.getWinsDrawsString();
-                    System.out.println("\n" + winDrawRate + "\n");
-                    break;
-                case 4:
-                    //Output player choices
-                    game.outputChoices();
-                    break;
-                case 5:
-                    //Save the results to file
-                    game.saveResultsToText();
-                    break;
-                case 6:
-                    //Set playing value to be false to exit the program
-                    playing = false;
-                    break;
-            }
-        }
-        // Close scanner at the end
-        scanner.close();
-    }
-
     // Play Rock, Paper, Scissors, Method to play full game, call for each game
-    private void playGame(int userChoice) {
+    void playGame(int userChoice) {
         Random rand = new Random();
         // Each time method runs, Increment the total games played
         setTotalGames(getTotalGames() + 1);
@@ -294,7 +238,7 @@ public class RockPaperScissorsGame {
     }
 
     // Convert the user input move number (int) to a string (Rock, Paper, or Scissors)
-    private String moveToString(int move) {
+    String moveToString(int move) {
         switch (move) {
             case 1:
                 return "Rock";
@@ -319,8 +263,16 @@ public class RockPaperScissorsGame {
         }
     }
 
+    private void printFarewell() {
+        System.out.println("\nThanks for using Rock, Paper, Scissors Simulator! See you again!");
+    }
+
+    private void printFileReady() {
+        System.out.println("\nYou file can be found in the output folder within src.");
+    }
+
     // Method to calculate the win rate
-    private void calculateWinRate() {
+    void calculateWinRate() {
         // Calculate win rate and update using setter
         double winRate = (double) getPlayer1Wins() / getTotalGames() * 100;
         setWinRate(winRate);
@@ -328,7 +280,7 @@ public class RockPaperScissorsGame {
     }
 
     // Method to calculate the draw rate
-    private void calculateDrawRate() {
+    void calculateDrawRate() {
         // Calculate win rate and update using setter
         double drawRate = (double) getTotalDraws() / getTotalGames() * 100;
         setDrawRate(drawRate);
@@ -343,7 +295,7 @@ public class RockPaperScissorsGame {
 
     // Method to save the results to a Text file and append the calculated win rate and choices
     private void saveResultsToText() {
-        File gameFile = new File("src/rps_results.txt");
+        File gameFile = new File("rock-paper-scissors-game/src/output/rockPaperScissorsResult.txt");
 
         // Prepare results to write, Establish a array list that will further be appended to
         ArrayList<String> resultsToWrite = new ArrayList<>();
@@ -369,7 +321,7 @@ public class RockPaperScissorsGame {
         //include a IOException catch
         try {
             Files.write(gameFile.toPath(), resultsToWrite, StandardOpenOption.CREATE, StandardOpenOption.APPEND);
-            System.out.println("Results saved to rps_results.txt.");
+            System.out.println("Results saved to rockPaperScissorsResult.txt.");
         } catch (IOException e) {
             System.out.println("An error occurred while saving the results: " + e.getMessage());
             e.printStackTrace();
@@ -379,7 +331,7 @@ public class RockPaperScissorsGame {
 
     //Method to write output strings for Choices
     //Returns the string to output
-    private String getChoicesString() {
+    String getChoicesString() {
         double rockPercentage = (double) getRockCount() / getTotalGames() * 100;
         double paperPercentage = (double) getPaperCount() / getTotalGames() * 100;
         double scissorsPercentage = (double) getScissorsCount() / getTotalGames() * 100;
@@ -393,7 +345,67 @@ public class RockPaperScissorsGame {
 
     //Method to write output strings for Win/Draw rates
     //Returns the string to output
-    private String getWinsDrawsString() {
+    String getWinsDrawsString() {
         return "Your Win Rate: "+getWinRate()+"%\n"+"Your Draw Rate: "+getDrawRate()+"%\n";
+    }
+
+    //Main Method
+    public static void main(String[] args) {
+        // Create an instance of RockPaperScissorsGame
+        RockPaperScissorsGame game = new RockPaperScissorsGame();
+        //Establish scanner for user input
+        Scanner scanner = new Scanner(System.in);
+        //Boolean value to trigger menu / stopping program
+        boolean playing = true;
+
+        //While loop to keep menu open so long as option 6 is not chosen, will continue until 6 is chosen
+        while (playing) {
+            System.out.println("1. Play Rock, Paper, Scissors");
+            System.out.println("2. Print results");
+            System.out.println("3. Calculate Win Rate");
+            System.out.println("4. Output choices");
+            System.out.println("5. Save results to Text File & Exit");
+            System.out.println("6. Exit");
+            int choice = scanner.nextInt();
+
+            //Switch statement to handle the menu option choice 1-6
+            switch (choice) {
+                case 1:
+                    //Directions for user
+                    System.out.println("Select 1 for Rock, 2 for Paper, or 3 for Scissors:");
+                    int userChoice = scanner.nextInt();
+                    game.playGame(userChoice);
+                    break;
+                case 2:
+                    //Print the game results so far
+                    game.printResults();
+                    break;
+                case 3:
+                    //Calculate the rates at the point this runs / the choice is input
+                    game.calculateWinRate();
+                    game.calculateDrawRate();
+                    String winDrawRate = game.getWinsDrawsString();
+                    System.out.println("\n" + winDrawRate + "\n");
+                    break;
+                case 4:
+                    //Output player choices
+                    game.outputChoices();
+                    break;
+                case 5:
+                    //Save the results to file
+                    game.saveResultsToText();
+                    game.printFileReady();
+                    game.printFarewell();
+                    playing = false;
+                    break;
+                case 6:
+                    //Set playing value to be false to exit the program
+                    game.printFarewell();
+                    playing = false;
+                    break;
+            }
+        }
+        // Close scanner at the end
+        scanner.close();
     }
 }

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="RockPaperScissorsGameTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2025-01-16T14:00:42" hostname="XENO" time="0.096">
+  <properties/>
+  <testcase name="testChoicesStringOutput()" classname="RockPaperScissorsGameTest" time="0.064"/>
+  <testcase name="testDrawRateCalculation()" classname="RockPaperScissorsGameTest" time="0.002"/>
+  <testcase name="testWinRateCalculation()" classname="RockPaperScissorsGameTest" time="0.001"/>
+  <testcase name="testChoiceTracking()" classname="RockPaperScissorsGameTest" time="0.003"/>
+  <testcase name="testPlayGameIncrementsTotalGames()" classname="RockPaperScissorsGameTest" time="0.002"/>
+  <testcase name="testMoveToString()" classname="RockPaperScissorsGameTest" time="0.003"/>
+  <testcase name="testWinDrawStringOutput()" classname="RockPaperScissorsGameTest" time="0.008"/>
+  <testcase name="testInitialGameStats()" classname="RockPaperScissorsGameTest" time="0.001"/>
+  <testcase name="testPlayGameUpdatesStatsCorrectly()" classname="RockPaperScissorsGameTest" time="0.0"/>
+  <testcase name="testGameResultsAreStored()" classname="RockPaperScissorsGameTest" time="0.001"/>
+  <system-out><![CDATA[Game 1: You chose Rock, Opponent chose Invalid Selection, Play Again. Score: You: 0, Opponent: 1, Winner: Opponent
+Game 2: You chose Paper, Opponent chose Invalid Selection, Play Again. Score: You: 0, Opponent: 2, Winner: Opponent
+Game 1: You chose Rock, Opponent chose Rock. Score: You: 0, Opponent: 0, Winner: Draw
+Game 1: You chose Rock, Opponent chose Paper. Score: You: 0, Opponent: 1, Winner: Opponent
+Game 1: You chose Rock, Opponent chose Rock. Score: You: 0, Opponent: 0, Winner: Draw
+Game 2: You chose Paper, Opponent chose Invalid Selection, Play Again. Score: You: 0, Opponent: 1, Winner: Opponent
+Game 3: You chose Scissors, Opponent chose Paper. Score: You: 1, Opponent: 1, Winner: You
+Game 1: You chose Rock, Opponent chose Invalid Selection, Play Again. Score: You: 0, Opponent: 1, Winner: Opponent
+Game 1: You chose Rock, Opponent chose Invalid Selection, Play Again. Score: You: 0, Opponent: 1, Winner: Opponent
+Game 1: You chose Rock, Opponent chose Paper. Score: You: 0, Opponent: 1, Winner: Opponent
+Game 1: You chose Rock, Opponent chose Paper. Score: You: 0, Opponent: 1, Winner: Opponent
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
