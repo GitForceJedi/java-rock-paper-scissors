@@ -227,10 +227,10 @@ public class RockPaperScissorsGame {
         }
 
         // Create the result string
-        String result = "Game " + getTotalGames() + ": You chose " + userMove +
+        String result = "\nGame " + getTotalGames() + ": You chose " + userMove +
                 ", Opponent chose " + opponentMove +
                 ". Score: You: " + getPlayer1Wins() +
-                ", Opponent: " + getOpponentWins() + ", Winner: " + winner;
+                ", Opponent: " + getOpponentWins() + ", Winner: " + winner + "\n";
 
         // Add result to gameResults List using getter
         setGameResults(result);
@@ -254,7 +254,7 @@ public class RockPaperScissorsGame {
 
     // Method to print results of the games
     private void printResults() {
-        System.out.println("Total games: " + getTotalGames());
+        System.out.println("\nTotal games: " + getTotalGames());
         System.out.println("Your wins: " + getPlayer1Wins());
         System.out.println("Opponent's wins: " + getOpponentWins());
         System.out.println("Results:");
@@ -372,7 +372,7 @@ public class RockPaperScissorsGame {
             switch (choice) {
                 case 1:
                     //Directions for user
-                    System.out.println("Select 1 for Rock, 2 for Paper, or 3 for Scissors:");
+                    System.out.println("\nSelect 1 for Rock, 2 for Paper, or 3 for Scissors:");
                     int userChoice = scanner.nextInt();
                     game.playGame(userChoice);
                     break;
