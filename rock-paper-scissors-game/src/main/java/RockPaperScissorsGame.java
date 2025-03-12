@@ -360,7 +360,7 @@ public class RockPaperScissorsGame {
         // Greet the user, only once
         System.out.println("Welcome to Rock, Paper, Scissors Simulator! \n " +
                 "This program will allow you to play as many games of Rock, Paper, Scissors as you want against a computer opponent. You can select your move, print results, save results to file, and more!\n" +
-                "To play, interact with the menu below:\n");
+                "To play, use your keyboard to interact with the menu below:\n");
 
 
         //While loop to keep menu open so long as option 6 is not chosen, will continue until 6 is chosen
