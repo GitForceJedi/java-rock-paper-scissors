@@ -1,0 +1,11 @@
+
+Game 1: You chose Rock, Opponent chose Rock. Score: You: 0, Opponent: 0, Winner: Draw
+
+Your Win Rate: 0.0%
+Your Draw Rate: 100.0%
+
+Your Choices: 
+	Rock: 100.0% Rock Win Rate: 0.0%
+	Paper: 0.0% Paper Win Rate: 0.0%
+	Scissors: 0.0% Scissors Win Rate: 0.0%
+

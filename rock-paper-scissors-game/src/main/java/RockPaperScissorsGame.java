@@ -358,7 +358,7 @@ public class RockPaperScissorsGame {
         //Boolean value to trigger menu / stopping program
         boolean playing = true;
         // Greet the user, only once
-        System.out.println("Welcome to Rock, Paper, Scissors Simulator! \n " +
+        System.out.println("Welcome to Rock, Paper, Scissors Simulator!\n" +
                 "This program will allow you to play as many games of Rock, Paper, Scissors as you want against a computer opponent. You can select your move, print results, save results to file, and more!\n" +
                 "To play, use your keyboard to interact with the menu below:\n");
 
