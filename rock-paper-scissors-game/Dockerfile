@@ -1,5 +1,21 @@
-# Use OpenJDK 17 as the base image
+# Use Gradle image to build the project
+FROM gradle:7.6.0-jdk17 AS build
+
+WORKDIR /app
+
+# Copy project files
+COPY . .
+
+# Ensure Gradle Wrapper has execute permissions
+RUN chmod +x ./gradlew
+
+# Build the project using Gradle
+RUN ./gradlew clean build
+
+# Use a lightweight OpenJDK image for the final container
 FROM openjdk:17-jdk-slim
+
+WORKDIR /app
 
 # Install dependencies
 RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
@@ -8,11 +24,8 @@ RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
 RUN curl -L https://github.com/tsl0922/ttyd/releases/download/1.6.3/ttyd.x86_64 -o /usr/local/bin/ttyd \
     && chmod +x /usr/local/bin/ttyd
 
-# Set working directory
-WORKDIR /app
-
-# Copy the JAR file into the container
-COPY RockPaperScissorsGame.jar app.jar
+# Copy the built JAR from the previous stage
+COPY --from=build /app/build/libs/*.jar app.jar
 
 # Expose port for the web-based terminal
 EXPOSE 10000
