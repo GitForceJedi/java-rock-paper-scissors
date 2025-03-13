@@ -27,6 +27,10 @@ RUN curl -L https://github.com/tsl0922/ttyd/releases/download/1.6.3/ttyd.x86_64 
 # Copy the built JAR from the previous stage
 COPY --from=build /app/build/libs/*.jar app.jar
 
+# ✅ Copy the output directory and text file to the container
+RUN mkdir -p /app/src/output
+COPY src/output/rockPaperScissorsResult.txt /app/src/output/rockPaperScissorsResult.txt
+
 # Expose port for the web-based terminal
 EXPOSE 10000
 
